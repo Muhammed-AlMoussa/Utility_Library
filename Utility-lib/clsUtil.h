@@ -1,6 +1,6 @@
 #pragma once
 #include<iostream>
-
+#include"clsDate.h"
 using namespace std;
 
 class clsUtil
@@ -177,6 +177,18 @@ public:
 	{
 		return ReversedNumber(Number) == Number;
 
+	}
+
+	static bool IsPalindromeArr(int Arr1[100], int Arr2[100], int Size)
+	{
+		for (int i = 0; i < Size; i++)
+		{
+			if (Arr1[i] != Arr2[i])
+			{
+				return false;
+			}
+		}
+		return true;
 	}
 
 	static void PrintInvertedPattern(int Number)
@@ -638,9 +650,10 @@ public:
 				AddArrayElement(Arr1[i], Arr2, Size2);
 		}
 	}
-	void PalindromeNumberOrNot(int Arr1[100], int Arr2[100], int Size)
+
+	static void PrintArrayPalindromeResult(int Arr1[100], int Arr2[100], int Size)
 	{
-		if (!CheckPalindrome(Arr1, Arr2, Size))
+		if (!IsPalindromeArr(Arr1, Arr2, Size))
 		{
 			cout << "\nNo,array is not palindrome ";
 		}
@@ -648,6 +661,98 @@ public:
 			cout << "\nYes array is Palindrome ";
 	}
 
+	static int NumberOfOddNumberInArray(int Arr1[100], int Size1)
+	{
+		int Counter = 0;
+		for (int i = 0; i < Size1; i++)
+		{
+			if (Arr1[i] % 2 != 0)
+			{
+				Counter++;
+			}
+		}
+		return Counter;
+	}
+
+	static int NumberOfEvenNumberInArray(int Arr[100], int Size)
+	{
+		int Counter = 0;
+
+		for (int i = 0; i < Size; i++)
+		{
+			if (Arr[i] % 2 == 0)
+			{
+				Counter++;
+			}
+		}
+		return Counter;
+	}
+
+	static int PositiveNumbersCount(int Arr[100], int Size)
+	{
+		int Counter = 0;
+		for (int i = 0; i < Size; i++)
+		{
+			if (Arr[i] >= 0)
+				Counter++;
+		}
+		return Counter;
+	}
+
+	static int NegativeNumbersCount(int Arr[100], int Size)
+	{
+		int Counter = 0;
+		for (int i = 0; i < Size; i++)
+		{
+			if (Arr[i] < 0)
+			{
+				Counter++;
+			}
+		}
+		return Counter;
+	}
+
+	static  void Swap(double& A, double& B)
+	{
+		double Temp;
+
+		Temp = A;
+		A = B;
+		B = Temp;
+	}
+
+	static  void Swap(bool& A, bool& B)
+	{
+		bool Temp;
+
+		Temp = A;
+		A = B;
+		B = Temp;
+	}
+
+	static  void Swap(char& A, char& B)
+	{
+		char Temp;
+
+		Temp = A;
+		A = B;
+		B = Temp;
+	}
+
+	static  void Swap(string& A, string& B)
+	{
+		string Temp;
+
+		Temp = A;
+		A = B;
+		B = Temp;
+	}
+
+	static  void Swap(clsDate& A, clsDate& B)
+	{
+		clsDate::SwapDates(A, B);
+
+	}
 
 };
 

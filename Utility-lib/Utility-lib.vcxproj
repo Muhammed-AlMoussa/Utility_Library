@@ -142,6 +142,7 @@
     <ClCompile Include="Utility-lib.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="clsDate.h" />
     <ClInclude Include="clsUtil.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
