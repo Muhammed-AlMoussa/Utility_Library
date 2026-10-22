@@ -326,7 +326,7 @@ public:
 		}
 		return Text;
 	}
-	
+
 	static int RandomNumber(int From, int To)
 	{
 		int Number = From + rand() % (To - From + 1);
@@ -359,7 +359,7 @@ public:
 			break;
 		}
 		default:
-			return GetRandomCharecter((enCharType)RandomNumber(1,3));
+			return GetRandomCharecter((enCharType)RandomNumber(1, 3));
 		}
 	}
 
@@ -385,7 +385,7 @@ public:
 		return Key;
 	}
 
-	static void GenerateKeys(int NumberOfKeys , enCharType CharType)
+	static void GenerateKeys(int NumberOfKeys, enCharType CharType)
 	{
 		for (int i = 1; i <= NumberOfKeys; i++)
 		{
@@ -556,7 +556,7 @@ public:
 		}
 	}
 
-	static void FillArrayWithKeys(string Arr1[100], int Size , enCharType CharType)
+	static void FillArrayWithKeys(string Arr1[100], int Size, enCharType CharType)
 	{
 		for (int i = 0; i < Size; i++)
 		{
@@ -574,7 +574,7 @@ public:
 		}
 		return -1;
 	}
-	
+
 	static void PrintFoundOrNot(int Arr[100], int NumberToCheck, int Size)
 	{
 		int NumberPosition = FindNumberPositionInArray(Arr, NumberToCheck, Size);
@@ -646,7 +646,7 @@ public:
 	{
 		for (int i = 0; i < Size1; i++)
 		{
-			if (!IsNumberInArray( Arr2,Arr1[i], Size2))
+			if (!IsNumberInArray(Arr2, Arr1[i], Size2))
 				AddArrayElement(Arr1[i], Arr2, Size2);
 		}
 	}
@@ -754,5 +754,70 @@ public:
 
 	}
 
+	static string NumberToText(long long Number)
+	{
+		if (Number == 0)
+			return "";
+		if (Number >= 1 && Number <= 10)
+		{
+			string arr[] = { "" , "One" , "Two" ,"Three" , "Four" , "Five" , "Six" , "Seven" , "Eight" , "Nine"
+			,"Ten" };
+			return arr[Number];
+		}
+
+		if (Number >= 11 && Number <= 19)
+		{
+			string arr[] = { " " ,"Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen",
+					"Sixteen", "Seventeen", "Eighteen", "Nineteen" };
+			return arr[Number % 10];
+		}
+		if (Number >= 20 && Number <= 99)
+		{
+			string arr[] = { " " , " " ,"Twenty" , "Thirty" , "Forty" ,"Fifty" , "Sixty" , "Seventy" , "Eighty" , "Ninety" };
+			return arr[Number / 10] + " " + NumberToText(Number % 10);
+		}
+		if (Number >= 100 && Number <= 199)
+		{
+			return NumberToText(Number / 100) + " Hundred " + NumberToText(Number % 100);
+		}
+
+		if (Number >= 200 && Number <= 999)
+		{
+			return NumberToText(Number / 100) + "Hundreds " + NumberToText(Number % 100);
+		}
+
+		if (Number >= 1000 && Number <= 1999)
+		{
+			return NumberToText(Number / 1000) + "Thousand " + NumberToText(Number % 1000);
+		}
+
+		if (Number >= 2000 && Number <= 999999)
+		{
+			return NumberToText(Number / 1000) + "Thousands " + NumberToText(Number % 1000);
+		}
+
+		if (Number >= 1000000 && Number <= 1999999)
+		{
+			return NumberToText(Number / 1000000) + "Million " + NumberToText(Number % 1000000);
+		}
+
+		if (Number >= 2000000 && Number <= 999999999)
+		{
+			return NumberToText(Number / 1000000) + "Millions " + NumberToText(Number % 1000000);
+		}
+
+		if (Number >= 1000000000 && Number <= 1999999999)
+		{
+			return NumberToText(Number / 1000000000) + "billion " + NumberToText(Number % 1000000000);
+		}
+
+		if (Number >= 2000000000 && Number <= 999999999999)
+		{
+			return NumberToText(Number / 1000000000) + "billions " + NumberToText(Number % 1000000000);
+		}
+	}
+
 };
+
+	
 
